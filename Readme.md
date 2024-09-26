@@ -21,3 +21,41 @@ Issues помогают командам улучшать взаимодейст
 
 Вопрос 5.
 Для отслеживания пустой директории в ней нуно создать пустой файл, чтобы Git начал её отслеживать.
+
+# Mission 3 
+## Part 1-3
+
+## Part 3
+1. получить список юзернеймов пользователей
+  ```sql
+select username from users
+```
+
+2. получить кол-во отправленных сообщений каждым пользователем: username - number of sent messages
+```sql
+select u.username, COUNT(m.text) as number_of_sent_messages 
+from messages m
+JOIN users u ON m.from = u.id
+group by m.from, u.username
+```
+
+3. Получить пользователя с самым большим кол-вом полученных сообщений и само количество username - number of received messages
+```sql
+select u.username, COUNT(m.text) as number_of_recieved_messages
+from messages m
+join users u on m.to = u.id
+group by u.username
+order by number_of_recieved_messages DESC
+limit 1;
+```
+
+4. Получить среднее кол-во сообщений, отправленное каждым пользователем
+```sql
+select avg(number_of_sent_messages) 
+from  
+(select u.username, COUNT(m.text) as number_of_sent_messages 
+  from messages m
+  join users u on m.from = u.id
+  group by u.username
+) as subquery;
+```
