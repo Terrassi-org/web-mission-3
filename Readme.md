@@ -24,6 +24,7 @@ Issues помогают командам улучшать взаимодейст
 
 # Mission 3 
 ## Part 1-3
+https://drive.google.com/file/d/1ROaKYf2hpYycgn-ONvYfX5toKrmC7JxL/view?usp=sharing
 
 ## Part 3
 1. получить список юзернеймов пользователей
